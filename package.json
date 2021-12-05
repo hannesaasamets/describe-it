@@ -13,10 +13,9 @@
     "smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark"
   },
   "devDependencies": {
-    "@smui/button": "^6.0.0-beta.4",
     "@smui/card": "^6.0.0-beta.4",
+    "@smui/fab": "^6.0.0-beta.4",
     "@smui/touch-target": "^6.0.0-beta.4",
-    "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-static": "^1.0.0-next.21",
     "@sveltejs/kit": "next",
     "eslint": "^7.32.0",
