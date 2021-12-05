@@ -87,6 +87,7 @@
     background: transparent;
     overflow: auto hidden;
     height: 100%;
+    opacity: .85;
   }
 
   .describe-it {
@@ -95,13 +96,13 @@
     box-shadow: none;
     background: none;
     margin: 0;
+    opacity: .75;
   }
 
   .text {
     font-family: Roboto Mono,RobotoDraft,Helvetica,Arial,sans-serif;
     font-size: 18px;
     line-height: 28px;
-    opacity: .75;
   }
 
   section {

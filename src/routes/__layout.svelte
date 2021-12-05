@@ -23,17 +23,8 @@
 <style>
   * :global(.fab) {
     background-color: #cecece;
-/*
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    fill: currentColor;
-    text-decoration: none;
-    cursor: pointer;
-    user-select: none;
-    border: none;
-*/
   }
+
   main::before {
     background: #fafafa;
     border-bottom: 1px solid rgba(0,0,0,0.12);
