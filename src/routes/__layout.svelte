@@ -22,7 +22,12 @@
 
 <style>
   * :global(.fab) {
-    background-color: #cecece;
+    background: transparent;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    width: 72px;
+    height: 72px;
+    color: #808080;
   }
 
   main::before {
