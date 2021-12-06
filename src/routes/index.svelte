@@ -44,13 +44,14 @@
         <Content class="card-content">
           <pre class="describe-it text"><code>{ parsed }</code></pre>
         </Content>
-        <Actions>
+        <Actions class="actions">
           <ActionIcons>
             <Wrapper>
               <IconButton
                 on:click={() => navigator.clipboard.writeText(parsed)}
                 aria-label="Copy to clipboard"
                 title="Copy to clipboard"
+                class="copy-button"
               >
                 <Icon class="material-icons">content_copy</Icon>
               </IconButton>
@@ -76,6 +77,7 @@
   }
 
   * :global(.card) {
+    background-color: rgb(var(--theme-background));
     border-radius: 0;
     flex-direction: row;
   }
@@ -88,15 +90,15 @@
 
   .column {
     flex: 1;
-    background-color: var(--theme-background);
   }
 
   .second-column {
-    background-color: #f5f5f5;
+    background-color: rgba(var(--theme-text), .04);
     border-bottom-right-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   * :global(.card-content) {
@@ -113,7 +115,7 @@
 
   textarea {
     flex: 1;
-    color: var(--theme-text);
+    color: rgb(var(--theme-text));
     min-height: 74px;
     outline: none;
     border: none;
@@ -127,12 +129,21 @@
   }
 
   .describe-it {
-    color: var(--theme-text);
+    color: rgb(var(--theme-text));
     padding: 0;
     box-shadow: none;
     background: none;
     margin: 0;
     opacity: .75;
+  }
+
+  * :global(.actions) {
+    margin-bottom: 8px;
+  }
+
+  * :global(.copy-button) {
+    color: rgb(var(--theme-text));
+    opacity: .6;
   }
 
   h1 {

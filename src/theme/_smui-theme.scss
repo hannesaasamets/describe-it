@@ -12,13 +12,9 @@
 );
 
 html,
-body { // light
+body {
   background-color: theme.$surface;
   color: theme.$on-surface;
-
-  --theme-text: #000;
-  --theme-background-emphasize: #eee;
-  --theme-background: #fff;
 }
 
 a {

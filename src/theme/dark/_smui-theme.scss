@@ -12,13 +12,9 @@
 );
 
 html,
-body { // dark
+body {
   background-color: #000;
   color: theme.$on-surface;
-
-  --theme-text: #fff;
-  --theme-background-emphasize: #222;
-  --theme-background: #000;
 }
 
 a {

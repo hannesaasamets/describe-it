@@ -23,16 +23,17 @@
 <style>
   * :global(.fab) {
     background: transparent;
-    border: 1px solid #ccc;
+    /* border: 1px solid #cccccc; */
+    border: 1px solid rgba(var(--theme-text), .2);
     box-shadow: none;
     width: 72px;
     height: 72px;
-    color: #808080;
+    color: rgba(var(--theme-text), .5);
   }
 
   main::before {
-    background: #fafafa;
-    border-bottom: 1px solid rgba(0,0,0,0.12);
+    background: rgba(var(--theme-emphasize), .3);
+    border-bottom: 1px solid rgba(var(--theme-text), 0.12);
     content: '';
     display: block;
     height: 162px;
@@ -41,7 +42,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    opacity: 0.3;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    main::before {
+      border-bottom: none;
+    }
   }
 
   main {
