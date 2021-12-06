@@ -29,7 +29,7 @@
 
   <div class="card-container" style="width: 100%">
     <Card class="card" style="flex-direction: row;">
-      <div style="flex: 1;">
+      <div class="column">
         <Content style="flex: 1; display:flex; padding: 20px 24px;">
           <textarea
             class="text"
@@ -40,9 +40,7 @@
           ></textarea>
         </Content>
       </div>
-      <div
-        style="flex: 1; background-color: #f5f5f5; border-bottom-right-radius: 0.5rem; border-top-right-radius: 0.5rem; display: flex; flex-direction: column;"
-      >
+      <div class="column second-column">
         <Content style="flex: 1; display:flex; padding: 20px 24px;">
           <pre class="describe-it text"><code>{ parsed }</code></pre>
         </Content>
@@ -75,31 +73,45 @@
     }
   }
 
+  .column {
+    flex: 1;
+    color: #707070;
+    background-color: #fff;
+  }
+
+  .second-column {
+    color: #404040;
+    background-color: #f5f5f5;
+    border-bottom-right-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
   textarea {
     flex: 1;
-    color: #3c4043;
     min-height: 74px;
     outline: none;
     border: none;
     resize: none;
     padding: 0;
     white-space: pre-wrap;
-    background: transparent;
+    background: var(--theme-background);
     overflow: auto hidden;
     height: 100%;
     opacity: .85;
   }
 
   .describe-it {
-    color: #000;
     padding: 0;
     box-shadow: none;
-    background: none;
+    background: var(--theme-background);
     margin: 0;
     opacity: .75;
   }
 
   .text {
+    color: var(--theme-text);
     font-family: Roboto Mono,RobotoDraft,Helvetica,Arial,sans-serif;
     font-size: 18px;
     line-height: 28px;
