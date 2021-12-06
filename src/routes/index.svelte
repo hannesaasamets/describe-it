@@ -27,10 +27,10 @@
     Indented text to tests
   </h1>
 
-  <div class="card-container" style="width: 100%">
-    <Card class="card" style="flex-direction: row;">
+  <div class="card-container">
+    <Card class="card">
       <div class="column">
-        <Content style="flex: 1; display:flex; padding: 20px 24px;">
+        <Content class="card-content">
           <textarea
             class="text"
             style="height: 280px"
@@ -41,16 +41,17 @@
         </Content>
       </div>
       <div class="column second-column">
-        <Content style="flex: 1; display:flex; padding: 20px 24px;">
+        <Content class="card-content">
           <pre class="describe-it text"><code>{ parsed }</code></pre>
         </Content>
-        <Actions>
+        <Actions class="actions">
           <ActionIcons>
             <Wrapper>
               <IconButton
                 on:click={() => navigator.clipboard.writeText(parsed)}
                 aria-label="Copy to clipboard"
                 title="Copy to clipboard"
+                class="copy-button"
               >
                 <Icon class="material-icons">content_copy</Icon>
               </IconButton>
@@ -63,8 +64,22 @@
 </section>
 
 <style>
+  section {
+    margin-top: 8.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .card-container {
+    width: 100%
+  }
+
   * :global(.card) {
+    background-color: rgb(var(--theme-background));
     border-radius: 0;
+    flex-direction: row;
   }
 
   @media (min-width: 1280px) {
@@ -75,54 +90,60 @@
 
   .column {
     flex: 1;
-    color: #707070;
-    background-color: #fff;
   }
 
   .second-column {
-    color: #404040;
-    background-color: #f5f5f5;
+    background-color: rgba(var(--theme-text), .04);
     border-bottom-right-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     display: flex;
     flex-direction: column;
+    position: relative;
+  }
+
+  * :global(.card-content) {
+    flex: 1;
+    display:flex;
+    padding: 20px 24px;
+  }
+
+  .text {
+    font-family: Roboto Mono,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    line-height: 28px;
   }
 
   textarea {
     flex: 1;
+    color: rgb(var(--theme-text));
     min-height: 74px;
     outline: none;
     border: none;
     resize: none;
     padding: 0;
     white-space: pre-wrap;
-    background: var(--theme-background);
+    background: transparent;
     overflow: auto hidden;
     height: 100%;
-    opacity: .85;
+    opacity: .62;
   }
 
   .describe-it {
+    color: rgb(var(--theme-text));
     padding: 0;
     box-shadow: none;
-    background: var(--theme-background);
+    background: none;
     margin: 0;
     opacity: .75;
   }
 
-  .text {
-    color: var(--theme-text);
-    font-family: Roboto Mono,RobotoDraft,Helvetica,Arial,sans-serif;
-    font-size: 18px;
-    line-height: 28px;
+  * :global(.actions) {
+    margin-bottom: 8px;
   }
 
-  section {
-    margin-top: 8.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
+  * :global(.copy-button) {
+    color: rgb(var(--theme-text));
+    opacity: .6;
   }
 
   h1 {
