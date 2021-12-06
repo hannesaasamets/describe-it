@@ -12,11 +12,9 @@
 );
 
 html,
-body {
+body { // light
   background-color: theme.$surface;
   color: theme.$on-surface;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
 
   --theme-text: #000;
   --theme-background-emphasize: #eee;

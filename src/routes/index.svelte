@@ -88,12 +88,10 @@
 
   .column {
     flex: 1;
-    color: #707070;
-    background-color: #fff;
+    background-color: var(--theme-background);
   }
 
   .second-column {
-    color: #404040;
     background-color: #f5f5f5;
     border-bottom-right-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -108,14 +106,14 @@
   }
 
   .text {
-      font-family: Roboto Mono,RobotoDraft,Helvetica,Arial,sans-serif;
-      font-size: 18px;
-      line-height: 28px;
+    font-family: Roboto Mono,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    line-height: 28px;
   }
 
   textarea {
     flex: 1;
-    color: #3c4043;
+    color: var(--theme-text);
     min-height: 74px;
     outline: none;
     border: none;
@@ -125,11 +123,11 @@
     background: transparent;
     overflow: auto hidden;
     height: 100%;
-    opacity: .85;
+    opacity: .62;
   }
 
   .describe-it {
-    color: #000;
+    color: var(--theme-text);
     padding: 0;
     box-shadow: none;
     background: none;
