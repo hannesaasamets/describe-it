@@ -1,17 +1,24 @@
-const jsonToJest = (json, level = 0, indentLength = 2) =>
+const DEFAULT_INDENT_LENGTH = 2;
+const ROOT_LEVEL_ID = null;
+
+const jsonToJest = (json, level = 0, indentLength = DEFAULT_INDENT_LENGTH) =>
   json.map(({ children, content }, index) => {
-    const indendation = ' '.repeat(level * indentLength);
+    const indentation = ' '.repeat(level * indentLength);
     const blockName = children.length ? 'describe' : 'it';
     const extraLine = index ? '\n' : '';
 
-    return [
-      `${extraLine}${indendation}${blockName}('${content}', {`,
+    const blockLines = [
+      `${extraLine}${indentation}${blockName}('${content}', {`,
       jsonToJest(children, level + 1),
-      `${indendation}});`,
-    ].filter(Boolean).join('\n');
+      `${indentation}});`,
+    ];
+
+    return blockLines
+      .filter(Boolean)
+      .join('\n');
   }).join('\n');
 
-const nestJson = (nodes, id = null) =>
+const nestJson = (nodes, id = ROOT_LEVEL_ID) =>
   nodes
     .filter(({ parent }) => parent === id)
     .map(node => ({
@@ -21,7 +28,7 @@ const nestJson = (nodes, id = null) =>
 
 const regexIndentation = /^(?<indent>(?: {2})*)(?<content>\S.*)/;
 
-const parseTree = (lines, indentLength = 2) => {
+const parseTree = (lines, indentLength = DEFAULT_INDENT_LENGTH) => {
   // Parse an indented outline
   const stack = [];
 
@@ -37,7 +44,7 @@ const parseTree = (lines, indentLength = 2) => {
       content,
       parent: level
         ? stack[level - 1]
-        : null,
+        : ROOT_LEVEL_ID,
     };
   });
 };
@@ -62,11 +69,11 @@ const lintTree = (lines, indentLength = 2) => {
       }
 
       stack[level] = index;
-    })
+    });
+
+  return errors
     .filter(Boolean)
     .join('\n');
-
-  return errors;
 };
 
 const example = `A
