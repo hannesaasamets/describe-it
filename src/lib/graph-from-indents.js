@@ -8,7 +8,7 @@ const jsonToJest = (json, level = 0, indentLength = DEFAULT_INDENT_LENGTH) =>
     const extraLine = index ? '\n' : '';
 
     const blockLines = [
-      `${extraLine}${indentation}${blockName}('${content}', {`,
+      `${extraLine}${indentation}${blockName}('${content}', () => {`,
       jsonToJest(children, level + 1),
       `${indentation}});`,
     ];
