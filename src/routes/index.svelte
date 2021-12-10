@@ -12,10 +12,15 @@
   let value = example;
   $: parsed = graphFromIndents(value);
 
-  const onInput = event => adjustInputHeight(event.target);
-  const adjustInputHeight = (target) => {
+  const adjustInputHeight = ({ target }) => {
     target.style.height = "auto";
     target.style.height = target.scrollHeight + "px";
+  };
+  const onTextareaMounted = (target) => {
+    target.focus();
+    target.selectionStart = target.selectionEnd = example.split('\n')[0].length;
+
+    adjustInputHeight({ target });
   };
 </script>
 <svelte:head>
@@ -35,8 +40,8 @@
             class="text"
             style="height: 280px"
             bind:value={value}
-            on:input={onInput}
-            use:adjustInputHeight
+            on:input={adjustInputHeight}
+            use:onTextareaMounted
           ></textarea>
         </Content>
       </div>
