@@ -18,7 +18,7 @@
   };
   const onTextareaMounted = (target) => {
     target.focus();
-    target.selectionStart = target.selectionEnd = example.split('\n')[0].length;
+    target.selectionStart = target.selectionEnd = example.indexOf('\n');
 
     adjustInputHeight({ target });
   };
